@@ -1,0 +1,95 @@
+// Abstract class nedir ? Interface nedir ? Araştırınız.
+
+Abstract classlar kendisinden türeyen sınıflar için ortak özellikler ve metodlar sağlayan ancak doğrudan nesne oluşturulamayacak 
+sınıflardır. Abstract classlar kendi içerisinde abstract metodlar da tanımlayabilir. Yani, bu abstract class ı miras alan sınıflar 
+abstract metodunun bodysini kendileri doldurabilirler.
+
+Interfaceler ise bir sınıfın uygulaması gerektiği metotları ve özellikleri tanımlayan yapılardır. Sadece metod imzalarının 
+bulunduğu ancak metodların bodylerinin tanımlanmadığı bir türdür. Interface i miras alan bir sınıf mirasını aldığı 
+interface in metodlarını uygulamak zorundadır.
+
+// Abstract class ile interface arasındaki farklar  nelerdir? Araştırınız.
+
+•	Abstract sınıflar yalnızca tek bir sınıf tarafından miras alınabilir. Ancak interfaceler, bir sınıf tarafından 
+birden fazla interface ile implement edilebilir.
+•	Abstract sınıflar özellikler, metotlar ve alanlar içerebilir ancak interfaceler sadece özellik ve metot içerebilir, 
+alan içeremez.
+•	Abstract sınıflarda constructor (yapıcı metot) bulunabilir fakat interfacelerde bulunamaz.
+•	Abstract sınıfların metotları abstract olabilir veya olmayabilir. Ancak interfacelerin metotları her zaman abstracttır.
+•	Abstract sınıfların metotları override edilerek kullanılabilir. Interfacelerin metotları ise implement edilerek kullanılır.
+
+
+// Abstract class ve interface ile 2’şer örnek yapınız.
+
+-----Abstract class 1. örnek:-----
+
+public abstract class Animal
+{
+    public void Eat() 
+    {
+        Console.WriteLine("This animal is eating.");
+    }
+
+    public abstract void MakeSound(); // Alt sınıflar implement etmeli
+}
+
+-----Abstract class 2. örnek:-----
+
+public abstract class Vehicle
+{
+    public void Start()
+    {
+        Console.WriteLine("Vehicle started.");
+    }
+
+    public abstract void Drive(); // Alt sınıflar implement etmeli
+}
+
+
+-----Interface 1. örnek:-----
+
+public interface IDriveable
+{
+    void Drive();  // Her sınıf kendi Drive metodunu implement etmeli
+}
+
+public class Car : IDriveable
+{
+    public void Drive()
+    {
+        Console.WriteLine("Car is driving.");
+    }
+}
+
+public class Truck : IDriveable
+{
+    public void Drive()
+    {
+        Console.WriteLine("Truck is driving.");
+    }
+}
+
+-----Interface 2. örnek:-----
+
+public interface IPrintable
+{
+    void Print();  // Her sınıf kendi Print metodunu implement etmeli
+}
+
+public class Document : IPrintable
+{
+    public void Print()
+    {
+        Console.WriteLine("Printing document.");
+    }
+}
+
+public class Photo : IPrintable
+{
+    public void Print()
+    {
+        Console.WriteLine("Printing photo.");
+    }
+}
+
+
